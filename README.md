@@ -1,4 +1,4 @@
-# football fan no tsudoi
+# footballfan no tsudoi
 ​
 ## サイト概要
 ### サイトテーマ
