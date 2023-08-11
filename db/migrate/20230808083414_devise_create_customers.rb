@@ -9,10 +9,10 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
 
 
 
-      t.string :name, null:false
-      t.string :phone_number, null: false
-      t.string :post_code, null: false
-      t.string :address, null: false
+      t.string :name
+      t.string :phone_number
+      t.string :post_code
+      t.string :address
       t.boolean :is_withdrawal, default: false, null: false
       ## Recoverable
       t.string   :reset_password_token
@@ -38,8 +38,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
-
+      
+      
       t.timestamps null: false
     end
 
