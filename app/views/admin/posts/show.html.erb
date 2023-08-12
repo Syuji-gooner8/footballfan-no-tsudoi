@@ -1,2 +1,7 @@
-<h1>Admin::Posts#show</h1>
-<p>Find me in app/views/admin/posts/show.html.erb</p>
+<h3>タイトル</h3>
+<%= @post.post_title %><br>
+
+<h3>本文</h3>
+<%= @post.body %><br>
+
+<%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete %>

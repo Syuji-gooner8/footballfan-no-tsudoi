@@ -2,7 +2,7 @@
   <div class="row mt-4">
     <div class="col-sm-8 px-sm-0 offset-sm-1">
 
-    <h4 class="table-secondary d-inline-flex pl-4 pr-4 mt-4 mb-3 ml-2"><%= @customer.full_name %>さんの会員詳細</h4>
+    <h4 class="table-secondary d-inline-flex pl-4 pr-4 mt-4 mb-3 ml-2"><%= @customer.name %>さんの会員詳細</h4>
 
     <%= form_with model: @customer, url:admin_customer_path(@customer), local:true do |f| %>
       <table class="table table-borderless">

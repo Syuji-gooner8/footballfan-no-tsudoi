@@ -1,2 +1,10 @@
-<h1>Public::Posts#index</h1>
-<p>Find me in app/views/public/posts/index.html.erb</p>
+<% if customer_signed_in? %>
+ <%= button_to "投稿", {controller: 'posts', action: 'new'}, {method: :get} %>
+<% end %>
+
+<% @posts.each do |post| %>
+  <span>投稿者：</span><%= post.customer.name %>
+  <span>タイトル：<%= link_to post.post_title, "posts/#{post.id}" %><br>
+  <%= post.body %>
+<% end %>
+<%= paginate @posts %>

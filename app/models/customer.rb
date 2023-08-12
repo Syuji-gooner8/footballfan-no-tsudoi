@@ -6,9 +6,9 @@ class Customer < ApplicationRecord
 
   has_one_attached :profile_image_url
   has_many :posts, dependent: :destroy
-  has_many :soccerteams, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :comments, dependent: :destroy
+  has_many :soccer_groups, dependent: :destroy
+  has_many :posts_likes, dependent: :destroy
+  has_many :posts_comments, dependent: :destroy
 
   def active_for_authentication?
     super && (is_withdrawal == false)
