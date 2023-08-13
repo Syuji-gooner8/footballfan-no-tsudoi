@@ -3,7 +3,7 @@
 <div class='row mt-4'>
 <div class="col-sm-8">
   <h4 class="table-secondary d-inline-flex pr-5 pl-5 ">マイページ</h4>
-<div class="mb-3">登録情報　<%= link_to "編集する", customers_information_edit_path(current_customer), class: "btn btn-success" %></th></div>
+<div class="mb-3">登録情報　<%= link_to "編集する", mypageedit_path(current_customer), class: "btn btn-success" %></th></div>
 
 <table class="table table-bordered">
   <tr>
@@ -30,7 +30,24 @@
     <th class="table-secondary">メールアドレス</th>
     <td><%= @customer.email %></td>
   </tr>
+  <tr>
+    <th class="table-secondary">プロフィール画像</th>
+    <% if @customer.image.attached? %>
+    <%= image_tag @customer.image, size: "200x150" %>
+    <% else %>
+    <%= image_tag 'no_image', size: "200x150" %>
+<% end %>
+  </tr>
 </table>
+
+<% if @customer.email != "guest@example.com" %>
+<div class="btn-wrapper col-5 mx-auto">
+<div class="row">
+<%= link_to "",mypageedit_path(@customer),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_customer_#{@customer.id}" %>
+</div>
+</div>
+<% end %>
+
 
 <div class="font-weight-bold my-3">投稿一覧　<%= link_to "一覧を見る", posts_path, class: "btn btn-primary" %></div>
 

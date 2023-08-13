@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  has_one_attached :post_image_url
+  has_one_attached :image
   belongs_to :customer
   belongs_to :soccer_group, optional: true
 
