@@ -1,2 +1,26 @@
-<h1>Admin::Soccerteams#index</h1>
-<p>Find me in app/views/admin/soccerteams/index.html.erb</p>
+<div class="soccergroups-container">
+   <div class="row">
+     <div class="col-4">
+       <%= link_to "サッカーグループ登録", new_admin_soccer_group_path %>
+        <br>
+        <table class="table">
+          <thead class="thead-light">
+          <tr>
+           <th>サッカーグループ一覧</th>
+           <th></th>
+          </tr>
+         </thead>
+
+         <tbody>
+          <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
+          <tr>
+            <td><%= soccergroup.name %></td>
+            <th><%= link_to "編集", edit_admin_soccer_group_path(soccergroup.id), class: "btn btn-success" %></th>
+            <th><%= link_to "削除", "/admin/soccer_groups/#{soccergroup.id}", method: :delete, class: "btn btn-outline-danger" %></th>
+          </tr>
+          </tbody>
+          <% end %>
+          </table>
+       </div>
+    </div>
+  </div>

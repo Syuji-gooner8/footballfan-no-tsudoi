@@ -1,2 +1,16 @@
-<h1>Admin::Soccerteams#edit</h1>
-<p>Find me in app/views/admin/soccerteams/edit.html.erb</p>
+<div class='container'>
+  <div class='row'>
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h3>Editing Group</h3>
+       <%= form_with model: @soccergroups, local: true do |f| %>
+       <div class="form-soccergroup">
+         <%= f.label"サッカーグループ名" %>
+         <%= f.text_field:name,class:"form-control" %>
+       </div>
+       
+         <th><%=f.submit"変更を保存", class:"btn btn-light btn-block"%></th>
+       
+       <% end %>
+  </div>
+</div>
+</div>

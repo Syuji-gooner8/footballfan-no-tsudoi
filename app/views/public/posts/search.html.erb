@@ -1,9 +1,6 @@
-<%= render 'search' %>
-<% if customer_signed_in? %>
- <%= button_to "投稿", {controller: 'posts', action: 'new'}, {method: :get} %>
-<% end %>
+<table class="table table-hover table-inverse">
 
-<% @posts.each do |post| %>
+  <% @posts.each do |post| %>
 
   <span>投稿者：</span><%= post.customer.name %>
 
@@ -17,4 +14,4 @@
  <% end %>
   <%= post.body %>
 <% end %>
-<%= paginate @posts %>
+

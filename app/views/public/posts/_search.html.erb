@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-end">
+  <%= form_with(url: post_search_path, local: true, method: :get, class: "rootpageSearchForm") do |form| %>
+  <%= form.text_field :keyword, placeholder: "キーワードを入力", id: 'Search_Form', class: "rootpageSearchForm__content" %>
+  <%= form.submit "検索", class: "rootpageSearchForm__bottum" %>
+  <% end %>
+</div>
+
+
+

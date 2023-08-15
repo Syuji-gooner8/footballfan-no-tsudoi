@@ -5,8 +5,11 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :image
-  has_many :posts, dependent: :destroy
-  has_many :soccer_groups, dependent: :destroy
+  has_many :posts, through: :posts
+  has_many :joined_soccer_groups, through: :posts, source: :soccergroup
+  def already_joined?(soccergroup)
+    self.posts.exists?(soccergroup_id: soccergroup.id)
+  end
   has_many :posts_likes, dependent: :destroy
   has_many :posts_comments, dependent: :destroy
 
@@ -18,7 +21,7 @@ class Customer < ApplicationRecord
       customer.name = "guestcustomer"
     end
   end
-  
+
 
   def active_for_authentication?
     super && (is_withdrawal == false)

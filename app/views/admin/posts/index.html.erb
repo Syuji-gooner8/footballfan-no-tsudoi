@@ -1,6 +1,14 @@
 <% @posts.each do |post| %>
   <span>投稿者：</span><%= post.customer.name %>
   <span>タイトル：<%= link_to post.post_title, "/admin/posts/#{post.id}" %><br>
+  
+  <p>画像</p>
+  
+  <% if post.image.attached? %>
+    <%= image_tag post.image, size: "150x200" %>
+    <% else %>
+    <%= image_tag 'no_image', size: "150x200" %>
+ <% end %>
   <%= post.body %>
 <% end %>
 <%= paginate @posts %>

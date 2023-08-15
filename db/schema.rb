@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2023_08_12_061145) do
 
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id"
-    t.integer "group_id"
+    t.integer "soccergroup_id"
     t.string "post_title"
     t.string "body"
     t.datetime "created_at", precision: 6, null: false

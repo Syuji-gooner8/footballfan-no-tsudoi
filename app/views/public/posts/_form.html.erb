@@ -1,17 +1,22 @@
 <%= form_with model: @post do |f| %>
+
+ <div class="field">
+   <%= f.label :サッカーグループ選択 %>
+   <%= f.select :soccergroup_id, @soccergroups %>
+ </div>
+
  <div class="field">
    <%= f.label :post_title, "投稿タイトル" %><br>
    <%= f.text_field :post_title %>
  </div>
 
- <div class="field">
+
+ <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <div class="field">
    <%= f.label :body, "本文" %><br>
    <%= f.text_area :body %>
  </div>
- 
- <h4>画像</h4>
-  <%= f.file_field :image, accept: "image/*" %>
-
  <div class="submit">
     <%= f.submit "送信"%>
   </div>

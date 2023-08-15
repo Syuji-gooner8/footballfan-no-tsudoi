@@ -1,4 +1,9 @@
 class SoccerGroup < ApplicationRecord
-  belongs_to :customer
-  has_many :posts, dependent: :destroy
+  has_many :posts
+  has_many :customers, through: :posts
+  has_many :joined_customers, through: :posts, source: :customer
+
+  def already_joining?(customer)
+    self.posts.exists?(customer_id: customer.id)
+  end
 end

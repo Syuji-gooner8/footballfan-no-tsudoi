@@ -4,4 +4,11 @@
 <h3>本文</h3>
 <%= @post.body %><br>
 
+<h2>画像</h2>
+<% if @post.image.attached? %>
+  <%= image_tag @post.image, size: "200x200" %>
+<% else %>
+  <%= image_tag 'no_image', size: "200x200" %>
+<% end %>
+
 <%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete %>

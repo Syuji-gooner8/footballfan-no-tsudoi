@@ -30,14 +30,7 @@
     <th class="table-secondary">メールアドレス</th>
     <td><%= @customer.email %></td>
   </tr>
-  <tr>
-    <th class="table-secondary">プロフィール画像</th>
-    <% if @customer.image.attached? %>
-    <%= image_tag @customer.image, size: "200x150" %>
-    <% else %>
-    <%= image_tag 'no_image', size: "200x150" %>
-<% end %>
-  </tr>
+  
 </table>
 
 <% if @customer.email != "guest@example.com" %>

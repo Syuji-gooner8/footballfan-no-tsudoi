@@ -1,0 +1,7 @@
+<%= form_for(@soccergroup, :url => { controller:'soccer_groups', action:'create'}) do |f| %>
+  <%= f.label :soccergroup名 %>
+  <%= f.text_field :name, :size => 80, class: "imput" %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "SoccerGroup一覧に戻る", soccer_groups_path %>

@@ -1,11 +1,22 @@
 class Public::PostsController < ApplicationController
   def index
-    @posts = Post.all.page(params[:page]).per(10)
-    #投稿順に表示させるように
+    @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+  end
+  
+  def search
+    @posts = Post.search(params[:keyword]).order(created_at: :desc)
   end
 
   def new
     @post = Post.new
+    soccergroups = []
+    SoccerGroup.all.each do |s|
+      soccergroup = []
+      soccergroup.push(s.name)
+      soccergroup.push(s.id)
+      soccergroups.push(soccergroup)
+    end
+    @soccergroups = soccergroups
   end
 
   def create
@@ -39,6 +50,6 @@ class Public::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:post_title, :body, :image)
+    params.require(:post).permit(:post_title, :body, :image, :soccergroup_id)
   end
 end
