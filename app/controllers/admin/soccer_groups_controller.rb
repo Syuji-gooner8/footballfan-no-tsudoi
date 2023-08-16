@@ -9,7 +9,7 @@ class Admin::SoccerGroupsController < ApplicationController
   
   
   def create
-    soccergroup = SoccerGroup.new(@soccergroup_params)
+    soccergroup = SoccerGroup.new(soccergroup_params)
     if soccergroup.save
       redirect_to admin_soccer_groups_path
     else
@@ -25,8 +25,9 @@ class Admin::SoccerGroupsController < ApplicationController
     @soccergroup = SoccerGroup.find(params[:id])
     if @soccergroup.update(soccergroup_params)
       redirect_to admin_soccer_groups_path, notice: "編集に成功しました"
-    end
+    else
       render 'edit'
+    end
   end
   
   def destroy

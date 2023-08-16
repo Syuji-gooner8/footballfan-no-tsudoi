@@ -11,3 +11,5 @@
   <%= image_tag 'no_image', size: "200x200" %>
 <% end %>
 <%= link_to"編集", "/posts/#{@post.id}/edit" %>
+
+<div id="post_<%= @post.id %>"><%= render "public/likes/like", post: @post %></div>

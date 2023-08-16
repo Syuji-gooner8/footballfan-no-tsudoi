@@ -3,8 +3,8 @@ class Post < ApplicationRecord
   belongs_to :customer
   belongs_to :soccer_group, optional: true
 
-  has_many :posts_comments, dependent: :destroy
-  has_many :posts_likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
   # 検索方法分岐
   def self.search(search)
     if search != ""
@@ -14,4 +14,7 @@ class Post < ApplicationRecord
     end
   end
 
+  def liked_by?(customer)
+    likes.where(customer_id: customer.id).exists?
+  end
 end

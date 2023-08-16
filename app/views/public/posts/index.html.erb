@@ -6,9 +6,10 @@
 <% @posts.each do |post| %>
 
   <span>投稿者：</span><%= post.customer.name %>
-
   <span>タイトル：<%= link_to post.post_title, "posts/#{post.id}" %><br>
+  <span>本文:</span><%= post.body %>
   <p>画像</p>
+
 
   <% if post.image.attached? %>
     <%= image_tag post.image, size: "150x120" %>

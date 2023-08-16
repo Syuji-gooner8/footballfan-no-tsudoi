@@ -14,7 +14,7 @@
          <tbody>
           <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
           <tr>
-            <td><%= soccergroup.name %></td>
+            <td>・<%= link_to  new_admin_soccer_group_path(soccergroup.id) do %><%= soccergroup.name %><% end %><br></td>
             <th><%= link_to "編集", edit_admin_soccer_group_path(soccergroup.id), class: "btn btn-success" %></th>
             <th><%= link_to "削除", "/admin/soccer_groups/#{soccergroup.id}", method: :delete, class: "btn btn-outline-danger" %></th>
           </tr>

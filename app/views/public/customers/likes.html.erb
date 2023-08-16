@@ -1,0 +1,12 @@
+<p>いいねした投稿一覧</p>
+<% @like_posts.each do |post|%>
+<%= link_to post.customer.name, customer_path(post.customer.id) %>
+<%=post.post_title %>
+<% if post.image.attached? %>
+    <%= image_tag post.image, size: "100x120" %>
+    <% else %>
+    <%= image_tag 'no_image', size: "100x120" %>
+ <% end %>
+<i class="fa fa-heart unlike-btn"></i>
+<% end %>
+

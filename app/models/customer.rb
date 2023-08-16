@@ -10,8 +10,8 @@ class Customer < ApplicationRecord
   def already_joined?(soccergroup)
     self.posts.exists?(soccergroup_id: soccergroup.id)
   end
-  has_many :posts_likes, dependent: :destroy
-  has_many :posts_comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   GUEST_CUSTOMER_EMAIL = "guest@example.com"
 

@@ -1,9 +1,27 @@
 <div class="soccergroups-container">
-  <%= link_to "new", new_soccer_group_path %> <!--グループの作成-->
-  
-  <br>
-      <% @soccergroups.each do |s| %> <!--グループの一覧表示-->
-      
-    ・<%= link_to  new_post_path(s.id) do %><%= s.name %><% end %><br>
-  <% end %>
+   <div class="row">
+     <div class="col-4">
+       <div class="soccergroups-container">
+         <%= link_to "サッカーグループ登録", new_soccer_group_path %> <!--グループの作成-->
+
+         <br>
+         <table class="table">
+          <thead class="thead-light">
+          <tr>
+            <th>サッカーグループ一覧</th>
+            <th></th>
+          </tr>
+         </thead>
+
+         <tbody>
+            <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
+          <tr>
+            <td>・<%= link_to  new_post_path(soccergroup.id) do %><%= soccergroup.name %><% end %><br></td>
+          </tr>
+          </tbody>
+          <% end %>
+          </tbody>
+        </div>
+      </div>
+    </div>
 </div>

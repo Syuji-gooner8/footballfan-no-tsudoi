@@ -23,15 +23,17 @@ Rails.application.routes.draw do
   resources :soccer_groups, only: [:index, :create, :new]
   resources :posts do
    resources :comments, only: [:create, :destroy]
-   resources :likes, only: [:index, :create, :destroy]
+   resource :likes, only: [:index, :create, :destroy]
   end
-  
+
    get "post/search" => "posts#search"
-  get "/customers/check" => "customers#check"
-  patch "/customers/withdraw" => "customers#withdraw"
+
+  resources :customers, only: [:check, :withdraw, :edit, :update] do
+    member do
+      get :likes
+    end
+  end
   get "customers/mypage" => "customers#show"
-  get "customers/information/:id/edit" => "customers#edit", as: "mypageedit"
-  patch "customers/information" => "customers#update"
   end
 
 
