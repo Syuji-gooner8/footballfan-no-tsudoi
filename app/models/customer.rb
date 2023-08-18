@@ -5,7 +5,7 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :image
-  has_many :posts, through: :posts
+  has_many :posts, through: :posts, dependent: :destroy
   has_many :joined_soccer_groups, through: :posts, source: :soccergroup
   def already_joined?(soccergroup)
     self.posts.exists?(soccergroup_id: soccergroup.id)
@@ -35,6 +35,12 @@ class Customer < ApplicationRecord
       "有効"
     end
   end
-
-
+  
+  def get_profile_image(width, height)
+   unless image.attached?
+    file_path = Rails.root.join('app/assets/images/no_image.jpg')
+    image.attach(io: File.open(file_path), filename: 'default-image.jpg', content_type: 'image/jpeg')
+   end
+   image.variant(resize_to_limit: [width, height]).processed
+  end
 end

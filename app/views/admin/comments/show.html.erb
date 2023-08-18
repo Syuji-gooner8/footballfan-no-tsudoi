@@ -1,0 +1,49 @@
+<div class=admin-show>
+  <table border=1>
+    <tr>
+      <th>投稿ユーザーID</th>
+      <td><%= @comment.post.customer.id %></td>
+    </tr>
+    <tr>
+      <th>投稿ユーザー名</th>
+      <td><%= @comment.post.customer.name %></td>
+    </tr>
+    <tr>
+      <th>投稿ID</th>
+      <td><%= @comment.post.id %></td>
+    </tr>
+    <tr>
+      <th>投稿内容</th>
+      <td><%= @comment.post.body %></td>
+    </tr>
+    <tr>
+      <th>コメントユーザーID</th>
+      <td><%= @comment.customer.id %></td>
+    </tr>
+    <tr>
+      <th>コメントユーザー名</th>
+      <td><%= @comment.customer.name %></td>
+    </tr>
+    <tr>
+      <th>コメントID</th>
+      <td><%= @comment.id %></td>
+    </tr>
+    <tr>
+      <th>コメント内容</th>
+      <td><%= @comment.body %></td>
+    </tr>
+    <tr>
+      <th>コメント登録日時</th>
+      <td><%= @comment.created_at_ja %></td>
+    </tr>
+    <tr>
+      <th>コメント更新日時</th>
+      <td><%= @comment.updated_at_ja %></td>
+    </tr>
+  </table>
+
+  <%# 編集 %>
+  <%= link_to '編集', edit_admin_comment_path(@comment.id) %><br>
+  <%# 一覧 %>
+  <%= link_to 'コメント一覧に戻る', admin_comments_path %>
+</div>

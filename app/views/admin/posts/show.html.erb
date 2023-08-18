@@ -12,3 +12,13 @@
 <% end %>
 
 <%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete %>
+<div>
+  <p>コメント件数：<%= @post.comments.count %></p>
+  <% @post.comments.each do |comment| %>
+    <p><%= image_tag comment.customer.get_profile_image(100,100) %></p>
+    <%= comment.customer.name %>
+    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
+    
+      <%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %>
+  <% end %>
+</div>

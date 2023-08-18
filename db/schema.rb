@@ -52,6 +52,14 @@ ActiveRecord::Schema.define(version: 2023_08_12_061145) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "post_id"
+    t.text "comment", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "customers", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -83,14 +91,6 @@ ActiveRecord::Schema.define(version: 2023_08_12_061145) do
     t.integer "soccergroup_id"
     t.string "post_title"
     t.string "body"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "posts_comments", force: :cascade do |t|
-    t.integer "customer_id"
-    t.integer "post_id"
-    t.string "comment"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
