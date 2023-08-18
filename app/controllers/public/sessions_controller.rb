@@ -25,11 +25,11 @@ class Public::SessionsController < Devise::SessionsController
    private
 
    def after_sign_in_path_for(resource)
-    mypageedit_path(current_customer.id)
+     customer_path(current_customer.id)
    end
 
    def after_sign_out_path_for(resource)
-    root_path 
+    root_path
    end
 
   protected

@@ -15,14 +15,14 @@
           </li>
 
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to  mypageedit_path,class: 'nav-link text-light' do %> マイページ
+            <%= link_to  customer_path(current_customer) ,class: 'nav-link text-light' do %> マイページ
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
             <%=  link_to posts_path,class: 'nav-link text-light' do %> 投稿一覧
             <% end %>
           </li>
-          
+
           <li class="btn btn-outline-light btn-sm ml-1">
             <%=  link_to soccer_groups_path,class: 'nav-link text-light' do %> サッカーグループ管理画面
             <% end %>
