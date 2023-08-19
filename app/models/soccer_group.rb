@@ -6,4 +6,12 @@ class SoccerGroup < ApplicationRecord
   def already_joining?(customer)
     self.posts.exists?(customer_id: customer.id)
   end
+  
+  def self.search(search)
+    if search != ""
+      SoccerGroup.where('name LIKE(?) ', "%#{search}%")
+    else
+      SoccerGroup.all
+    end
+  end
 end

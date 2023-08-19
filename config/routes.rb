@@ -21,22 +21,22 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "homes/about"=>"homes#about", as: "about"
   resources :soccer_groups, only: [:index, :create, :new]
+  get "soccer_group/search" => "soccer_groups#search"
   resources :posts do
    resources :comments, only: [:create, :destroy]
    resource :likes, only: [:index, :create, :destroy]
   end
 
-   get "post/search" => "posts#search"
-
-  resources :customers, only: [:edit, :update, :show] do
-    member do
-      get :likes
-      
-    end
-  end
-  
+  get "post/search" => "posts#search"
   get "/customers/check" => "customers#check"
   patch "/customers/withdraw" => "customers#withdraw"
+  resources :customers, only: [:edit, :update, :show,] do
+    member do
+      get :likes
+
+    end
+  end
+
   end
 
 

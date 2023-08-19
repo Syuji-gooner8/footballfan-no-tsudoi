@@ -7,7 +7,10 @@ class Public::SoccerGroupsController < ApplicationController
     @soccergroup = SoccerGroup.new
   end
 
-
+  def search
+    @soccergroups = SoccerGroup.search(params[:keyword]).order(created_at: :desc)
+  end
+  
   def create
     soccergroup = SoccerGroup.new(soccergroup_params)
     if soccergroup.save
