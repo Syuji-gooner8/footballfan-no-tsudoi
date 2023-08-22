@@ -1,22 +1,31 @@
-<%= render 'search' %>
-<% if customer_signed_in? %>
- <%= button_to "投稿", {controller: 'posts', action: 'new'}, {method: :get} %>
-<% end %>
+<div class="cover-index">
+    <div class="container">
+        <div class="row justify-content-center">
+            <h1 class="font-weight-normal mt-3">サッカー投稿一覧</h1>
+        </div>
+        <%= render 'search' %>
+        <div class="text-right">
+            <% if customer_signed_in? %>
+            <%= button_to "投稿する", {controller: 'posts', action: 'new'}, {method: :get} %>
+            <% end %>
+        </div>
+        <div class="row justify-content-center">
+            <% @posts.each do |post| %>
+            <div class="one-post">
+                <%= link_to post_path(post) do %>
+                <p class="caption"><%= post.customer.name %></p>
 
-<% @posts.each do |post| %>
+                <% if post.image.attached? %>
+                <%= image_tag post.image, size: "250x180" %>
+                <% else %>
+                <%= image_tag 'no_image', size: "250x180" %>
+                <% end %>
+                <p class="caption"><%= post.post_title %></p>
+            <% end %>
+            </div>
+            <% end %>
+        </div>
 
-  <span>投稿者：</span><%= post.customer.name %>
-  <span>タイトル：<%= link_to post.post_title, "posts/#{post.id}" %><br>
-  <span>本文:</span><%= post.body %>
-  <p>画像</p>
-
-
-  <% if post.image.attached? %>
-    <%= image_tag post.image, size: "150x120" %>
-    <% else %>
-    <%= image_tag 'no_image', size: "150x120" %>
- <% end %>
-  <%= post.body %>
-<% end %>
-
-<%= paginate @posts %>
+        <%= paginate @posts %>
+    </div>
+</div>

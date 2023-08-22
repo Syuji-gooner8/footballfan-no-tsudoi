@@ -1,1 +1,19 @@
-<%= render 'form' %>
+<%= form_with model: @post do |f| %>
+
+ <div class="field">
+   <%= f.label :post_title, "投稿タイトル" %><br>
+   <%= f.text_field :post_title %>
+ </div>
+
+
+ <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+  <div class="field">
+   <%= f.label :body, "本文" %><br>
+   <%= f.text_area :body %>
+ </div>
+ <div class="submit">
+    <%= f.submit "送信"%>
+  </div>
+
+<% end %>

@@ -33,7 +33,7 @@ class Public::PostsController < ApplicationController
     @post = Post.find(params[:id])
     #@post = Post.new
     @comment = Comment.new
-
+    @comments = @post.comments.page(params[:page]).per(7).reverse_order
   end
 
   def edit
