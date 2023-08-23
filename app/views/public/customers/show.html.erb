@@ -1,49 +1,50 @@
-<%= render 'public/soccer_groups/search' %>
-<div class='container'>
+<div class="cover-customer-show">
+  <div class="container">
+    <%= render 'public/soccer_groups/search' %>
+    <div class="row justify-content-center">
+      <% if customer_signed_in? && @customer == current_customer %>
+      <h1 class="font-weight-normal mt-5 mb-5">マイページ</h1>
+      <% else %>
+      <h1 class="font-weight-normal mt-5 mb-5"><%= @customer.name %>さんのページ</h1>
+      <% end %>
+    </div>
 
-<div class='row mt-4'>
-<div class="col-sm-8">
-  <h4 class="table-secondary d-inline-flex pr-5 pl-5 ">マイページ</h4>
-<div class="mb-3">登録情報　<%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %></th></div>
+    <table class="table table-bordered">
+      <h1 class="mb-3">登録情報</h1>
+      <tr>
+        <th class="text-center">郵便番号</th>
+         <th><%= @customer.post_code %></th>
+      </tr>
 
-<table class="table table-bordered">
-  <tr>
-    <th class="table-secondary">氏名</th>
-    <td><%= @customer.name %></td>
-  </tr>
+      <tr>
+        <th class="text-center">住所</th>
+        <th><%= @customer.address %></th>
+      </tr>
 
-  <tr>
-    <th class="table-secondary">郵便番号</th>
-    <td><%= @customer.post_code %><td>
-  </tr>
+      <tr>
+        <th class="text-center">電話番号</th>
+        <th><%= @customer.phone_number %></th>
+      </tr>
 
-  <tr>
-    <th class="table-secondary">住所</th>
-    <td><%= @customer.address %><td>
-  </tr>
+      <tr>
+        <th class="text-center">メールアドレス</th>
+        <th><%= @customer.email %></th>
+      </tr>
+      <tr>
+        <th class="text-center"><%= link_to "編集する", edit_customer_path(current_customer), class: "btn btn-success" %></th>
+      </tr>
+    </table>
+    <% if @customer.email != "guest@example.com" %>
+    <div class="btn-wrapper col-5 mx-auto">
+      <div class="row">
+        <%= link_to "",edit_customer_path(@customer),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_customer_#{@customer.id}" %>
+      </div>
+    </div>
+    <% end %>
 
-  <tr>
-    <th class="table-secondary">電話番号</th>
-    <td><%= @customer.phone_number %><td>
-  </tr>
+    <div class="font-weight-bold my-1">いいねした投稿<%= link_to "いいねした一覧を見る", likes_customer_path(@customer), class: "btn btn-warning" %></div>
+    <div class="font-weight-bold my-3">投稿一覧　<%= link_to "一覧を見る", posts_path, class: "btn btn-primary" %></div>
 
-  <tr>
-    <th class="table-secondary">メールアドレス</th>
-    <td><%= @customer.email %></td>
-  </tr>
-
-</table>
-<% if @customer.email != "guest@example.com" %>
-<div class="btn-wrapper col-5 mx-auto">
-<div class="row">
-<%= link_to "",edit_customer_path(@customer),class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_customer_#{@customer.id}" %>
-</div>
-</div>
-<% end %>
-
-<%= link_to "いいねした投稿", likes_customer_path(@customer) %>
-<div class="font-weight-bold my-3">投稿一覧　<%= link_to "一覧を見る", posts_path, class: "btn btn-primary" %></div>
-
-</div>
+  </div>
 </div>
 </div>

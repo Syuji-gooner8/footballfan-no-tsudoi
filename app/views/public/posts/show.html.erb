@@ -15,7 +15,7 @@
         <p class="caption"><%= @post.post_title %></p>
         <h2>本文</h2>
         <p id="body"><%= @post.body %></p>
-        <div id="post_<%= @post.id %>"><%= render "public/likes/like", post: @post %></div>
+        <div id="post_<%= @post.id %>"><%= render "public/likes/like", post: @post %></div><br>
         <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
       </div>
 

@@ -52,7 +52,7 @@ h1 {
 .cover-show {
   height: 100%;
   width: 100%;
-  background-image: url(/assets/16.jpeg);
+  
   background-color: rgba(255, 255, 255, 0.4);
   background-blend-mode: lighten;
   background-size: 100% 100%;
@@ -69,4 +69,13 @@ h1 {
 
 .comment-delete {
   margin-left: auto;
+}
+
+.cover-edit {
+  height: 100%;
+  width: 100%;
+  background-image: url(/assets/24143429.jpg);
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: 100% 100%;
 }
