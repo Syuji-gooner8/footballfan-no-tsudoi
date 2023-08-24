@@ -46,7 +46,7 @@ Rails.application.routes.draw do
   resources :soccer_groups, only: [:index, :new, :create, :edit, :update, :destroy]
   resources :customers, only: [:index, :show, :edit, :update]
   resources :posts, only: [:index, :show, :destroy] do
-  resources :posts_comments, only: [:show, :destroy]
+  resources :comments, only: [:show, :destroy]
   end
 end
 end

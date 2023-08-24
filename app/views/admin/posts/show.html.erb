@@ -1,24 +1,38 @@
-<h3>タイトル</h3>
-<%= @post.post_title %><br>
-
-<h3>本文</h3>
-<%= @post.body %><br>
-
-<h2>画像</h2>
-<% if @post.image.attached? %>
-  <%= image_tag @post.image, size: "200x200" %>
-<% else %>
-  <%= image_tag 'no_image', size: "200x200" %>
-<% end %>
-
-<%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete %>
-<div>
-  <p>コメント件数：<%= @post.comments.count %></p>
-  <% @post.comments.each do |comment| %>
-    <p><%= image_tag comment.customer.get_profile_image(100,100) %></p>
-    <%= comment.customer.name %>
-    <%= comment.created_at.strftime('%Y/%m/%d') %><%= comment.comment %>
-    
-      <%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %>
-  <% end %>
+<div class="cover-admin-show">
+  <div class="container">
+    <div class="row justify-content-center">
+    <h1 class="font-weight-normal mt-5 mb-5">投稿詳細</h1>
+    </div>
+    <div class="d-flex">
+      <div class="row justify-content-center d-block">
+        <p class="caption"><%= @post.customer.name %></p>
+        
+        <% if @post.image.attached? %>
+        <%= image_tag @post.image, size: "300x250" %>
+        <% else %>
+          <%= image_tag 'no_image', size: "300x250" %>
+        <% end %>
+        <p class="caption"><%= @post.post_title %></p>
+        <h2>本文</h2>
+        <p id="body"><%= @post.body %></p>
+        
+        <%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete, class: "btn-lg btn-danger" %>
+      </div>
+      <div class="comments ml-5 mt-5">
+          <p>コメント件数：<%= @post.comments.count %></p>
+          <% @post.comments.each do |comment| %>
+          <div class="comments-index mb-2">
+            <%= comment.customer.name %>
+            <%= comment.created_at.strftime('%Y/%m/%d') %><br>
+            <div class="d-flex">
+            <%= comment.comment %>
+            <div class="comment-delete">
+              <%= link_to "削除", admin_post_comment_path(comment.post, comment), method: :delete %>
+            </div>
+            </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
+  </div>
 </div>

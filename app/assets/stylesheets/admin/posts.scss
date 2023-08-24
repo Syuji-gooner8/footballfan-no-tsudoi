@@ -1,3 +1,24 @@
 // Place all the styles related to the admin::posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.cover-admin-show {
+  height: 100%;
+  width: 100%;
+  
+  background-color: rgba(255, 255, 255, 0.4);
+  background-blend-mode: lighten;
+  background-size: 100% 100%;
+}
+
+#text {
+  font-size: 18px;
+}
+
+.comments-index {
+  background-color: #fff;
+  border: 1px #000 solid;
+}
+
+.comment-delete {
+  margin-left: auto;
+}

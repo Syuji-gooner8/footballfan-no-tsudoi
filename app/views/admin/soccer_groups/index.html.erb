@@ -1,26 +1,19 @@
-<div class="soccergroups-container">
-   <div class="row">
-     <div class="col-4">
-       <%= link_to "サッカーグループ登録", new_admin_soccer_group_path %>
-        <br>
-        <table class="table">
-          <thead class="thead-light">
-          <tr>
-           <th>サッカーグループ一覧</th>
-           <th></th>
-          </tr>
-         </thead>
-
-         <tbody>
-          <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
-          <tr>
-            <td>・<%= link_to  new_admin_soccer_group_path(soccergroup.id) do %><%= soccergroup.name %><% end %><br></td>
-            <th><%= link_to "編集", edit_admin_soccer_group_path(soccergroup.id), class: "btn btn-success" %></th>
-            <th><%= link_to "削除", "/admin/soccer_groups/#{soccergroup.id}", method: :delete, class: "btn btn-outline-danger" %></th>
-          </tr>
-          </tbody>
-          <% end %>
-          </table>
-       </div>
-    </div>
+<div class="container">
+  <div class="row justify-content-center">
+     <h1 class="font-weight-normal mt-3">サッカーグループ一覧</h1>
   </div>
+  <table class="row justify-content-center">
+    <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
+    
+    <tr>
+      <td>・<%= soccergroup.name %></td>
+      <td><%= link_to "編集", edit_admin_soccer_group_path(soccergroup.id), class: "btn btn-success" %></td>
+      <br>
+      <td><%= link_to "削除", "/admin/soccer_groups/#{soccergroup.id}", method: :delete, class: "btn btn-outline-danger" %></td>
+    </tr>
+    <% end %>
+  </table>
+  <div class="text-right">
+    <%= link_to "サッカーグループ登録", new_admin_soccer_group_path, class: "btn btn-success" %><!--グループの作成-->
+  </div>
+</div>
