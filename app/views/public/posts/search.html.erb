@@ -1,18 +1,16 @@
-<table class="table table-hover table-inverse">
-
-  <% @posts.each do |post| %>
-
-  <span>投稿者：</span><%= post.customer.name %>
-
-  <span>タイトル：<%= link_to post.post_title, "posts/#{post.id}" %><br>
-  <p>画像</p>
-
-  <% if post.image.attached? %>
-    <%= image_tag post.image, size: "150x120" %>
-    <% else %>
-    <%= image_tag 'no_image', size: "150x120" %>
- <% end %>
-  <%= post.body %>
-<% end %>
-</table>
+  <div class="row justify-content-center">
+    <% @posts.each do |post| %>
+    <div class="one-post">
+      <%= link_to post_path(post) do %>
+      <p class="caption"><%= post.customer.name %></p>
+      <% if post.image.attached? %>
+      <%= image_tag post.image, size: "250x180" %>
+      <% else %>
+      <%= image_tag 'no_image', size: "250x180" %>
+      <% end %>
+      <p class="caption"><%= post.post_title %></p>
+      <% end %>
+    </div>
+      <% end %>
+  </div>
 

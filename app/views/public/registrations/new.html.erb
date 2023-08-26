@@ -32,11 +32,6 @@
         </tr>
 
         <tr>
-          <th><%= f.label :'プロフィール画像' %></th>
-          <th><%= f.file_field :profile_image_url, autofocus: true, autocomplete: "image/*" %></th>
-        </tr>
-
-        <tr>
           <th><%= f.label :'パスワード' %>
           <% if @minimum_password_length %>
           <em>(<%= @minimum_password_length %> 文字以上)</em>
@@ -52,6 +47,7 @@
 
         <tr>
           <th><%= f.submit "新規登録", class:'btn btn-success' %></th>
+          <th>会員の方はこちら<%= render "public/shared/links" %></th>
         </tr>
       </table>
       <% end %>
@@ -60,10 +56,3 @@
 </div>
 
 
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-4 px-sm-0 offset-sm-1">
-     <p><%= render "public/shared/links" %></p>
-    </div>
-  </div>
-</div>

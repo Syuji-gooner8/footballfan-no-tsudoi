@@ -17,7 +17,7 @@ class Public::RegistrationsController < Devise::RegistrationsController
    end
 
    def after_sign_up_path_for(resource)
-    customers_mypage_path(current_customer.id)
+    customer_path(current_customer.id)
    end
 
   # GET /resource/edit
