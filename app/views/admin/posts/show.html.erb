@@ -6,16 +6,16 @@
     <div class="d-flex">
       <div class="row justify-content-center d-block">
         <p class="caption"><%= @post.customer.name %></p>
-        
+
         <% if @post.image.attached? %>
         <%= image_tag @post.image, size: "300x250" %>
         <% else %>
-          <%= image_tag 'no_image', size: "300x250" %>
+          <%= image_tag 'no_image.jpg', size: "300x250" %>
         <% end %>
         <p class="caption"><%= @post.post_title %></p>
         <h2>本文</h2>
         <p id="body"><%= @post.body %></p>
-        
+
         <%= link_to"削除", "/admin/posts/#{@post.id}", method: :delete, class: "btn-lg btn-danger" %>
       </div>
       <div class="comments ml-5 mt-5">
