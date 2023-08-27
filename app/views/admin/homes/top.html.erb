@@ -5,7 +5,7 @@
   <div class="row justify-content-center">
     <% @posts.each do |post| %>
     <div class="one-post">
-      <%= link_to post_path(post) do %>
+      <%= link_to admin_post_path(post) do %>
       <p class="caption"><%= post.customer.name %></p>
 
       <% if post.image.attached? %>
