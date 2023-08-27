@@ -16,7 +16,9 @@
         <h2>本文</h2>
         <p id="body"><%= @post.body %></p>
         <div id="post_<%= @post.id %>"><%= render "public/likes/like", post: @post %></div><br>
+        <% if @post.customer == current_customer %>
         <%= link_to '編集する', edit_post_path(@post.id), class: "btn btn-info mr-3" %>
+        <% end %>
       </div>
 
     <div class="comments ml-5 mt-5">

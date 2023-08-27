@@ -5,6 +5,7 @@ class Public::PostsController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword]).order(created_at: :desc)
+    redirect_to
   end
 
   def new
