@@ -24,9 +24,8 @@ class Public::SoccerGroupsController < ApplicationController
   private
 
   def ensure_guest_customer
-    @customer = Customer.find(params[:id])
-    if @customer.email == "guest@example.com"
-      redirect_to new_soccer_group_path(current_customer) , notice: "ゲスト会員はサッカーグループ登録画面へ遷移できません"
+    if current_customer.email == "guest@example.com"
+      redirect_to soccer_groups_path(current_customer) , notice: "ゲスト会員はサッカーグループ登録画面へ遷移できません"
     end
   end
 

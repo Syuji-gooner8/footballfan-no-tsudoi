@@ -52,11 +52,11 @@ class Public::PostsController < ApplicationController
   end
 
   private
-  
+
   def ensure_guest_customer
-    @customer = Customer.find(params[:id])
-    if @customer.email == "guest@example.com"
-      redirect_to post_path(current_customer) , notice: "ゲスト会員は投稿ページと編集ページへ遷移できません"
+
+    if current_customer.email == "guest@example.com"
+      redirect_to posts_path(current_customer) , notice: "ゲスト会員は投稿ページと編集ページへ遷移できません"
     end
   end
 
