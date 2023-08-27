@@ -14,7 +14,7 @@ sub-title {
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/13.jpg);
+  background-image: image-url("13.jpg");
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
   background-size: 100% 100%;
@@ -26,7 +26,7 @@ sub-title {
   height: 100%;
   width: 100%;
   display: table;
-  background-image: url(/assets/10.jpg);
+  background-image: image-url("10.jpg");
   background-color:rgba(255,255,255,0.4);
   background-blend-mode:lighten;
   background-size: 100% 100%;
