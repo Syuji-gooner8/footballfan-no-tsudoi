@@ -1,7 +1,7 @@
 class Public::CustomersController < ApplicationController
   before_action :ensure_guest_customer, only: [:edit]
   before_action :set_customer, only: [:likes]
-  
+
   def show
     @customer = current_customer
   end
@@ -31,7 +31,7 @@ class Public::CustomersController < ApplicationController
     likes = Like.where(customer_id: @customer.id).pluck(:post_id)
     @like_posts = Post.find(likes)
   end
-  
+
   private
 
   def ensure_guest_customer
@@ -44,7 +44,7 @@ class Public::CustomersController < ApplicationController
   def customer_params
     params.require(:customer).permit(:name, :phone_number, :post_code, :address, :email, :image, :encrypted_password, :is_withdrawal)
   end
-  
+
   def set_customer
     @customer = Customer.find(params[:id])
   end
