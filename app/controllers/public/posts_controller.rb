@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :ensure_guest_customer, only: [:edit, :new]
   def index
     @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
   end
@@ -51,6 +52,13 @@ class Public::PostsController < ApplicationController
   end
 
   private
+  
+  def ensure_guest_customer
+    @customer = Customer.find(params[:id])
+    if @customer.email == "guest@example.com"
+      redirect_to post_path(current_customer) , notice: "ゲスト会員は投稿ページと編集ページへ遷移できません"
+    end
+  end
 
   def post_params
     params.require(:post).permit(:post_title, :body, :image, :soccergroup_id)
