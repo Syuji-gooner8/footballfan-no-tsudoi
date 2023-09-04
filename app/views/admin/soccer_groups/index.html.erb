@@ -4,11 +4,10 @@
   </div>
   <table class="row justify-content-center">
     <% @soccergroups.each do |soccergroup| %> <!--グループの一覧表示-->
-    
+    <br>
     <tr>
       <td>・<%= soccergroup.name %></td>
       <td><%= link_to "編集", edit_admin_soccer_group_path(soccergroup.id), class: "btn btn-success" %></td>
-      <br>
       <td><%= link_to "削除", "/admin/soccer_groups/#{soccergroup.id}", method: :delete, class: "btn btn-outline-danger" %></td>
     </tr>
     <% end %>
