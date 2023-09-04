@@ -15,21 +15,21 @@
           </li>
 
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to  customer_path(current_customer) ,class: 'nav-link text-light' do %> マイページ
+            <%= link_to  customer_path(current_customer) ,class: 'nav-link text-light' do %><i class="fa-solid fa-user fa-lg"></i>マイページ
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to posts_path,class: 'nav-link text-light' do %> 投稿一覧
-            <% end %>
-          </li>
-
-          <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to soccer_groups_path,class: 'nav-link text-light' do %> サッカーグループ管理画面
+            <%=  link_to posts_path,class: 'nav-link text-light' do %><i class="fa-solid fa-image fa-lg"></i> 投稿一覧
             <% end %>
           </li>
 
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %> ログアウト
+            <%=  link_to soccer_groups_path,class: 'nav-link text-light' do %><i class="fa-regular fa-futbol fa-lg"></i>サッカーグループ管理画面
+            <% end %>
+          </li>
+
+          <li class="btn btn-outline-light btn-sm ml-1">
+            <%= link_to destroy_customer_session_path, method: :delete,class: 'nav-link text-light' do %><i class="fa-solid fa-right-from-bracket"></i> ログアウト
             <% end %>
           </li>
 
@@ -37,20 +37,20 @@
 
 
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to admin_posts_path ,class: 'nav-link text-light' do %> 投稿一覧
+            <%=  link_to admin_posts_path ,class: 'nav-link text-light' do %><i class="fa-solid fa-image fa-lg"></i> 投稿一覧
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to admin_customers_path ,class: 'nav-link text-light' do %> 会員一覧
+            <%=  link_to admin_customers_path ,class: 'nav-link text-light' do %><i class="fa-regular fa-id-badge fa-lg"></i> 会員一覧
             <% end %>
           </li>
 
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to admin_soccer_groups_path ,class: 'nav-link text-light' do %> サッカーグループ管理
+            <%=  link_to admin_soccer_groups_path ,class: 'nav-link text-light' do %><i class="fa-regular fa-futbol fa-lg"></i> サッカーグループ管理
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%=  link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %> ログアウト
+            <%=  link_to destroy_admin_session_path, method: :delete,class: 'nav-link text-light' do %><i class="fa-solid fa-right-from-bracket"></i> ログアウト
             <% end %>
           </li>
 
@@ -61,15 +61,15 @@
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to posts_path,class: 'nav-link text-light' do %> 投稿一覧
+            <%= link_to posts_path,class: 'nav-link text-light' do %><i class="fa-solid fa-image fa-lg"></i> 投稿一覧
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %> 新規登録
+            <%= link_to new_customer_registration_path,class: 'nav-link text-light' do %><i class="fa-solid fa-users"></i> 新規登録
             <% end %>
           </li>
           <li class="btn btn-outline-light btn-sm ml-1">
-            <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %> ログイン
+            <%= link_to new_customer_session_path ,class: 'nav-link text-light' do %><i class="fa-solid fa-right-to-bracket"></i> ログイン
             <% end %>
           </li>
         <% end %>
