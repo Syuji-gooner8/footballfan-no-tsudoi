@@ -9,6 +9,7 @@
           <div class="one-post">
             <%= link_to admin_post_path(post) do %>
             <p class="caption"><%= post.customer.name %></p>
+            <p class="caption"><%= post.soccer_group.name %></p>
 
             <% if post.image.attached? %>
             <%= image_tag post.image, size: "250x180" %>

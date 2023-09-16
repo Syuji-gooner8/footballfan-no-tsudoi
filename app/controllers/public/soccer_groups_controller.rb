@@ -14,6 +14,7 @@ class Public::SoccerGroupsController < ApplicationController
 
   def create
     soccergroup = SoccerGroup.new(soccergroup_params)
+    soccergroup.customer_id = current_customer.id
     if soccergroup.save
       redirect_to soccer_groups_path
     else
@@ -30,6 +31,6 @@ class Public::SoccerGroupsController < ApplicationController
   end
 
   def soccergroup_params
-    params.require(:soccer_group).permit(:teamname, :leaguename, :name)
+    params.require(:soccer_group).permit(:team_name, :league_name, :name)
   end
 end

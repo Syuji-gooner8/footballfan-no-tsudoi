@@ -9,7 +9,7 @@
       <%= form_for(@soccergroup, :url => { controller:'soccer_groups', action:'create'}) do |f| %>
       <%= f.label :サッカーグループ名 %>
       <%= f.text_field :name, :size => 40, class: "imput" %>
-      <%= link_to "グループ登録", soccer_groups_path, class: "btn btn-outline-primary" %>
+      <%= f.submit "グループ登録" %>
     <% end %>
     </div>
     <div class="text-right">

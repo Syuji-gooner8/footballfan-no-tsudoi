@@ -23,6 +23,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
+   
     if @post.save
       redirect_to posts_path
     else
@@ -61,6 +62,6 @@ class Public::PostsController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:post_title, :body, :image, :soccergroup_id)
+    params.require(:post).permit(:post_title, :body, :image, :soccer_group_id)
   end
 end
