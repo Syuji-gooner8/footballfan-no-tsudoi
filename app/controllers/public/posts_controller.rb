@@ -1,5 +1,8 @@
 class Public::PostsController < ApplicationController
   before_action :ensure_guest_customer, only: [:edit, :new]
+  before_action :authenticate_customer!, except: [:show, :index]
+  before_action :correct_post, only: [:edit, :update]
+
   def index
     @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
   end
@@ -23,7 +26,7 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.customer_id = current_customer.id
-   
+
     if @post.save
       redirect_to posts_path
     else
@@ -52,6 +55,13 @@ class Public::PostsController < ApplicationController
     end
   end
 
+  def correct_post
+    @post = Post.find(params[:id])
+    unless @post.customer.id == current_customer.id
+      redirect_to post_path, alert: 'このページには遷移できません'
+    end
+  end
+
   private
 
   def ensure_guest_customer
@@ -64,4 +74,5 @@ class Public::PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:post_title, :body, :image, :soccer_group_id)
   end
+
 end
