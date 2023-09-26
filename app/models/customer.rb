@@ -7,6 +7,10 @@ class Customer < ApplicationRecord
   has_one_attached :image
   has_many :posts, through: :posts, dependent: :destroy
   has_many :joined_soccer_groups, through: :posts, source: :soccergroup
+
+  validates :phone_number, presence: true, numericality: {only_integer: true}
+  validates :post_code, presence: true, numericality: {only_integer: true}
+
   def already_joined?(soccergroup)
     self.posts.exists?(soccergroup_id: soccergroup.id)
   end
@@ -35,7 +39,7 @@ class Customer < ApplicationRecord
       "有効"
     end
   end
-  
+
   def get_profile_image(width, height)
    unless image.attached?
     file_path = Rails.root.join('app/assets/images/no_image.jpg')
