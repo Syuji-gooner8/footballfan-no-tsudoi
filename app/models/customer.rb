@@ -9,7 +9,12 @@ class Customer < ApplicationRecord
   has_many :joined_soccer_groups, through: :posts, source: :soccergroup
 
   validates :phone_number, presence: true, numericality: {only_integer: true}
-  validates :post_code, presence: true, numericality: {only_integer: true}
+
+
+  VALID_POST_CODE_REGEX = /\A\d{3}[-]?\d{4}\z/
+  validates :post_code, presence: true, format: { with: VALID_POST_CODE_REGEX }
+
+
 
   def already_joined?(soccergroup)
     self.posts.exists?(soccergroup_id: soccergroup.id)

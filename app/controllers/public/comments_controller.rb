@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :authenticate_customer!, except: [:destroy]
   def create
     post = Post.find(params[:post_id])
     @comment = Comment.new
@@ -10,7 +11,14 @@ class Public::CommentsController < ApplicationController
 
   def destroy
     Comment.find(params[:id]).destroy
-    redirect_to post_path(params[:post_id])
+    if @comment.customer_id == current_customer.id
+      @comment.destroy
+      redirect_to post_path(params[:post_id])
+      flash[:notice] = "コメントを削除しました"
+    else
+      redirect_to post_path(params[:post_id])
+      flash[:alert] = "他人のコメントは削除できません"
+    end
   end
 
   private
