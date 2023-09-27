@@ -28,6 +28,8 @@ class Customer < ApplicationRecord
     find_or_create_by!(email: GUEST_CUSTOMER_EMAIL) do |customer|
       customer.password = SecureRandom.urlsafe_base64
       customer.name = "guestcustomer"
+      customer.phone_number = "1234567"
+      customer.post_code = "1234567"
     end
   end
 
