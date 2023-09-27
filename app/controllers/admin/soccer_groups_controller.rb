@@ -1,4 +1,5 @@
 class Admin::SoccerGroupsController < ApplicationController
+  before_action :authenticate_admin!
   def index
     @soccergroups = SoccerGroup.all
   end
