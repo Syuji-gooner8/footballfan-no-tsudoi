@@ -14,7 +14,7 @@ class Post < ApplicationRecord
     end
   end
 
-  def liked_by?(current_customer)
+  def liked_by?(customer)
     likes.where(customer_id: customer.id).exists?
   end
 end
