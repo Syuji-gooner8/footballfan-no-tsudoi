@@ -10,7 +10,7 @@
         <% if @post.image.attached? %>
            <%= image_tag @post.image, size: "400x300" %>
         <% else %>
-           <%= image_tag 'no_image', size: "400x300" %>
+           <%= image_tag 'no_image.jpg', size: "400x300" %>
         <% end %>
         <p class="caption"><%= @post.post_title %></p>
         <h2>本文</h2>
