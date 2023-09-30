@@ -55,3 +55,7 @@ a:hover {
   width: 100px;
   height: 80px;
 }
+
+@media (max-width: 480px){
+    font-size: 1.2rem;
+}
