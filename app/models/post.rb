@@ -5,6 +5,7 @@ class Post < ApplicationRecord
 
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :likes_customers, through: :likes, source: :customer
   # 検索方法分岐
   def self.search(search)
     if search != ""

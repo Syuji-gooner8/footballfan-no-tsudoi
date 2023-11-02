@@ -20,6 +20,8 @@ class Customer < ApplicationRecord
     self.posts.exists?(soccergroup_id: soccergroup.id)
   end
   has_many :likes, dependent: :destroy
+  has_many liked_posts, through: :likes, source: :post
+
   has_many :comments, dependent: :destroy
 
   GUEST_CUSTOMER_EMAIL = "guest@example.com"
