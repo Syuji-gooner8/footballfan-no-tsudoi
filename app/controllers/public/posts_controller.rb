@@ -4,7 +4,7 @@ class Public::PostsController < ApplicationController
   before_action :correct_post, only: [:edit, :update]
 
   def index
-    @posts = Post.all.page(params[:page]).per(10).order(created_at: :desc)
+    @posts = Post.includes(:likes_customers).sort {|a,b| b.likes_customers.size <=> a.likes_customers.size}
   end
 
   def search

@@ -6,6 +6,7 @@ class Customer < ApplicationRecord
 
   has_one_attached :image
   has_many :posts, through: :posts, dependent: :destroy
+  has_many :liked_posts, through: :likes, source: :post
   has_many :joined_soccer_groups, through: :posts, source: :soccergroup
 
   validates :phone_number, presence: true, numericality: {only_integer: true}
@@ -20,7 +21,7 @@ class Customer < ApplicationRecord
     self.posts.exists?(soccergroup_id: soccergroup.id)
   end
   has_many :likes, dependent: :destroy
-  has_many liked_posts, through: :likes, source: :post
+
 
   has_many :comments, dependent: :destroy
 
